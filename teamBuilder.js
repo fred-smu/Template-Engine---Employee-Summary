@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const apps = require("./app");
-var teamList = apps.teamList;
+const teamList = apps.teamList;
 
 
 
@@ -77,8 +77,8 @@ const teamBuilderindex = html => {
     fs.writeFileSync(file, masterHTML);
   };
 
-  const replacePlaceholders = (template, placeholder, value) => {
-    const pattern = new RegExp("{ " + placeholder + " }", "gm");
+  const replacePlaceholders = (template, replacePlaceholders, value) => {
+    const pattern = new RegExp("{ " + replacePlaceholders + " }", "gm");
     return template.replace(pattern, value);
   };
 
