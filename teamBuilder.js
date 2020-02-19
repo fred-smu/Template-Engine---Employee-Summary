@@ -5,7 +5,7 @@ const teamList = apps.teamList;
 
 
 
-const templatesDir = path.resolve(__dirname, "../Template-Engine-Employee-Summary/templates");
+const templatesDir = path.join(__dirname, "/templates");
 
 const teamBuilder = (teamList) => {
 
