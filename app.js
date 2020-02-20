@@ -4,10 +4,11 @@ var Engineer = require("./lib/Engineer");
 var Intern = require("./lib/Intern");
 var Employee = require("./lib/Employee");
 var teamBuilder = require("./teamBuilder");
+//sets arry teamList to empty
 const teamList = [];
 
 function createTeam() {
-
+// prompts for jobs to branch off of
     inquirer.prompt([
 
             {
@@ -23,7 +24,7 @@ function createTeam() {
             }
 
         ]).then(userChoice => {
-            
+          // uses switch to call funtions  
             switch (userChoice.memberChoice) {
                 
                 case "Manager":
@@ -39,6 +40,7 @@ function createTeam() {
                     break;
 
                 case "Close Employee List":
+                    // breaks out of loop when all team members or intered
                     teamBuilder(teamList);
                     break
 
@@ -75,10 +77,11 @@ function addManager() {
             }
 
         ]).then(userChoice => {
-            console.log(userChoice);
-
+            //  console.log(userChoice);
+            // creates manager object to add to the end of teamList
             const manager = new Manager(userChoice.managerName, userChoice.managerID, userChoice.managerEmail, userChoice.managerOfficeNumber)
             teamList.push(manager)
+            //starts the process for more team members
             createTeam();
 
         })
@@ -114,10 +117,11 @@ function addEngineer() {
                 name: "gitHubUsername"
             }
         ]).then(userChoice => {
-            console.log(userChoice);
-
+            //  console.log(userChoice);
+            // creates engineer object to add to the end of teamList
             const engineer = new Engineer(userChoice.engineerName, userChoice.engineerID, userChoice.engineerEmail, userChoice.gitHubUsername)
             teamList.push(engineer)
+            //starts the process for more team members
             createTeam();
 
         })
@@ -154,10 +158,11 @@ function addIntern() {
                 name: "internSchool"
             }
         ]).then(userChoice => {
-            console.log(userChoice);
-
+            //  console.log(userChoice);
+            // creates intern object to add to the end of teamList        
             const intern = new Intern(userChoice.internName, userChoice.internID, userChoice.internEmail, userChoice.internSchool)
             teamList.push(intern)
+            //starts the process for more team members
             createTeam();
         })
 }
